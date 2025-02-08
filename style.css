@@ -1,0 +1,326 @@
+/* Global Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  color: #1F2937;
+}
+
+/* Container to center content within full‑width sections */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Navigation Bar (Centered) */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  padding: 10px 20px;
+}
+
+nav ul li {
+  margin: 0 20px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #1F2937;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #1E3A5F;
+}
+
+/* Section Backgrounds (Full Width with 48px padding) */
+section {
+  width: 100%;
+  padding: 48px;
+}
+
+/* Section Specific Backgrounds */
+#hero {
+  background-color: #F5F7FA;
+}
+
+#about {
+  background-color: #FFFFFF;
+}
+
+#skills {
+  background-color: #F5F7FA;
+}
+
+#projects {
+  background-color: #1E3A5F;
+}
+
+#contact {
+  background-color: #FFFFFF;
+}
+
+/* Hero Section */
+#hero .hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  min-height: 50vh;
+  margin: 0 auto;
+  align-items: center; /* vertically centers text and image */
+  justify-content: space-between;
+}
+
+/* Hero Image (Left) */
+.hero-image {
+  flex: 0 0 auto;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;  /* ensure vertical centering */
+  justify-content: center;
+  /* Explicitly force alignment (if needed) */
+  align-self: center;
+}
+
+.hero-image img {
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Hero Text (Right, aligned right and vertically centered) */
+.hero-text {
+  flex: 1;
+  min-width: 300px;
+  width: 10%;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 250px;
+}
+
+.hero-text h1 {
+  font-size: 60px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  margin-bottom: 20px;
+  text-align: right;
+}
+
+/* Hero Buttons aligned to the right */
+.hero-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Primary Button: Contact Me */
+.btn.primary {
+  background-color: #1E3A5F;
+  color: #FFFFFF;
+}
+
+.btn.primary:hover {
+  background-color: #162a45;
+}
+
+/* Secondary Button: Resume */
+.btn.secondary {
+  background-color: #F5F7FA;
+  color: #1E3A5F;
+  border: 2px solid #1E3A5F;
+}
+
+.btn.secondary:hover {
+  background-color: #E5E7EB;
+}
+
+/* About Section (Centered Title) */
+#about h2 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* Skills / What I Do Section */
+#skills h2 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Set card titles to navy (#1F2937) */
+.card h3 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: #1F2937;
+}
+
+.card {
+  background-color: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  flex: 1;
+  min-width: 250px;
+  max-width: 300px;
+  text-align: center;
+}
+
+/* Projects Section */
+#projects h2 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 20px;
+  text-align: center;
+  color: #FFFFFF;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+/* Project Cards (White background, centered title, custom colors) */
+.project-card {
+  background-color: #FFFFFF;
+  color: #1F2937;
+  border-radius: 10px;
+  padding: 20px;
+  /* Extra bottom padding to prevent text from overlapping GitHub button */
+  padding-bottom: 60px;
+  position: relative;
+  text-align: center;
+  min-width: 250px;
+  max-width: 300px;
+}
+
+.project-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  color: #365B6D;
+}
+
+/* Align project description text to the left */
+.project-card p {
+  text-align: left;
+  color: #1F2937;
+}
+
+/* GitHub Icon inside project cards (Bigger: 32x32) */
+.github-icon {
+  width: 32px !important;
+  height: 32px !important;
+}
+
+.projects-container .github-btn {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #365B6D;
+  transition: color 0.3s ease;
+}
+
+.projects-container .github-btn:hover {
+  color: #2c4f5f;
+}
+
+/* On screens wider than 1200px, fit 5 project cards in one row */
+@media (min-width: 1200px) {
+  .projects-container {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+  .project-card {
+    width: calc((100% - 80px) / 5);
+  }
+}
+
+/* Contact Section */
+#contact {
+  text-align: center;
+}
+
+#contact h2 {
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+#contact p {
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #1F2937;
+}
+
+.btn.contact-btn {
+  background-color: #1E3A5F;
+  color: #FFFFFF;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+  }
+  
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  nav ul li {
+    margin: 10px 0;
+  }
+}
