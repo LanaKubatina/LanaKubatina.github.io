@@ -10,9 +10,10 @@ html {
 }
 
 body {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 18px;
   color: #1F2937;
+  line-height: 1.6;
 }
 
 /* Container to center content within full‑width sections */
@@ -21,7 +22,67 @@ body {
   margin: 0 auto;
 }
 
-/* Navigation Bar (Centered) */
+/* Navigation Bar */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    /* Hide by default */
+    flex-direction: column;
+    /* Stack links vertically */
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: #FFFFFF;
+    padding: 10px 0;
+    gap: 10px;
+  }
+
+  .nav-menu.active {
+    display: flex;
+    /* Show when active */
+  }
+
+  .nav-toggle {
+    display: flex;
+    /* Show the burger button */
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24px;
+    height: 18px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px;
+    margin-bottom: 10px;
+  }
+
+  .burger {
+    width: 100%;
+    height: 3px;
+    background-color: #b1b1b1;
+    border-radius: 3px;
+  }
+}
+
+/* On wider screens, hide the burger button */
+@media (min-width: 769px) {
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-menu {
+    display: flex;
+    /* Ensure your nav links show in desktop view */
+    position: static;
+    flex-direction: row;
+    gap: 0px;
+    background: none;
+    padding: 0;
+  }
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -30,6 +91,10 @@ nav {
   background-color: #FFFFFF;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   z-index: 1000;
+  padding: 20px 20px;
+  /* increases vertical space */
+  display: flex;
+  align-items: center;
 }
 
 nav ul {
@@ -45,13 +110,13 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #1F2937;
+  color: #636363;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
 nav ul li a:hover {
-  color: #1E3A5F;
+  color: #1F2937;
 }
 
 /* Section Backgrounds (Full Width with 48px padding) */
@@ -74,55 +139,76 @@ section {
 }
 
 #projects {
-  background-color: #1E3A5F;
+  background-color: #365b6d;
 }
 
 #contact {
   background-color: #FFFFFF;
 }
-
+h1, h2 {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #365b6d;
+}
 /* Hero Section */
 #hero .hero-content {
   display: flex;
   flex-wrap: wrap;
   max-width: 1200px;
-  min-height: 50vh;
+  min-height: calc(100vh - 70px);
   margin: 0 auto;
-  align-items: center; /* vertically centers text and image */
+  align-items: center;
   justify-content: space-between;
 }
-
-/* Hero Image (Left) */
-.hero-image {
-  flex: 0 0 auto;
-  margin-right: 20px;
-  display: flex;
-  align-items: center;  /* ensure vertical centering */
-  justify-content: center;
-  /* Explicitly force alignment (if needed) */
-  align-self: center;
+.profile-container {
+  position: relative;
+  margin-right: 50px;
 }
 
-.hero-image img {
-  width: 250px;
-  height: 250px;
+/* Main Profile Image */
+.profile-image {
+  width: 350px;
+  height: 350px;
   object-fit: cover;
   border-radius: 10px;
+  display: block;
 }
 
-/* Hero Text (Right, aligned right and vertically centered) */
+/* Overlay Images */
+.overlay-image {
+  position: absolute;
+  width: 200px;
+  height: auto;
+  border-radius: 0;
+}
+
+/* Positioning for the first overlay image */
+.overlay-image-1 {
+  top: 30px;    /* Adjust vertical position relative to the profile image */
+  left: -120px;   /* Adjust horizontal position */
+}
+
+/* Positioning for the second overlay image */
+.overlay-image-2 {
+  bottom: -55px; /* Adjust vertical position */
+  right: 10px;    /* Adjust horizontal position */
+}
+
+/* Hero Text */
 .hero-text {
   flex: 1;
   min-width: 300px;
-  width: 10%;
-  text-align: right;
+  text-align: center;  /* or 'right' if you prefer */
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 250px;
+  /* Remove fixed height if you want it to adjust with content */
+  /* height: 250px; */
 }
 
 .hero-text h1 {
+  font-family: 'Source Code Pro', serif;
   font-size: 60px;
   font-weight: 700;
   margin-bottom: 20px;
@@ -130,14 +216,14 @@ section {
 
 .hero-text p {
   margin-bottom: 20px;
-  text-align: right;
+  text-align: center;
 }
 
-/* Hero Buttons aligned to the right */
+/* Hero Buttons */
 .hero-buttons {
   display: flex;
   gap: 10px;
-  justify-content: flex-end;
+  justify-content: center;
   margin-top: auto;
 }
 
@@ -152,53 +238,98 @@ section {
 
 /* Primary Button: Contact Me */
 .btn.primary {
-  background-color: #1E3A5F;
+  background-color: #365b6d;
   color: #FFFFFF;
 }
 
 .btn.primary:hover {
-  background-color: #162a45;
+  background-color: #2b4856;
 }
 
 /* Secondary Button: Resume */
 .btn.secondary {
   background-color: #F5F7FA;
-  color: #1E3A5F;
-  border: 2px solid #1E3A5F;
+  color: #365b6d;
+  border: 2px solid #365b6d;
 }
 
 .btn.secondary:hover {
   background-color: #E5E7EB;
 }
 
-/* About Section (Centered Title) */
+/* About Section */
+#about {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  min-height: 400px;
+}
+#about .about-container {
+  position: relative;
+  padding: 20px;
+}
+
+.about-image {
+  position: absolute;
+  top: -150px;     /* Adjust this value to change vertical position */
+  left: 170px;    /* Adjust this value to change horizontal position */
+  width: 200px;  /* Change this value to control the image's width */
+  height: auto;  /* Keeps the aspect ratio intact */
+  border-radius: 0px; /* Optional: rounds the corners of the image */
+}
+.about-image1 {
+  position: absolute;
+  bottom: -150px;     /* Adjust this value to change vertical position */
+  right: 10px;    /* Adjust this value to change horizontal position */
+  width: 200px;  /* Change this value to control the image's width */
+  height: auto;  /* Keeps the aspect ratio intact */
+  border-radius: 0px; /* Optional: rounds the corners of the image */
+}
 #about h2 {
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 40px;
+  font-weight: 700;
   margin-bottom: 20px;
   text-align: center;
+  margin-bottom: 50px; 
 }
 
 /* Skills / What I Do Section */
+#skills {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  min-height: 400px;
+}
+#skills .skills-container {
+  position: relative;
+  padding: 20px;
+}
+.skills-image {
+  position: absolute;
+  top: -100px;     /* Adjust this value to change vertical position */
+  right: 10px;    /* Adjust this value to change horizontal position */
+  width: 200px;  /* Change this value to control the image's width */
+  height: auto;  /* Keeps the aspect ratio intact */
+  border-radius: 0px; /* Optional: rounds the corners of the image */
+}
 #skills h2 {
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 40px;
+  font-weight: 700;
   margin-bottom: 20px;
   text-align: center;
+  margin-bottom: 50px; 
 }
 
 .cards-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 60px;
   justify-content: center;
 }
 
-/* Set card titles to navy (#1F2937) */
 .card h3 {
   font-size: 20px;
   margin-bottom: 10px;
-  color: #1F2937;
+  color: #365b6d;
+  text-align: center;
 }
 
 .card {
@@ -211,16 +342,57 @@ section {
   max-width: 300px;
   text-align: center;
 }
-
 /* Projects Section */
+#projects {
+  padding-top: 100px;
+  padding-bottom: 100px;
+  min-height: 900px;
+  position: relative; /* Optional if you want the section itself as the reference */
+}
+
+/* New wrapper for overlays and content */
+.projects-wrapper {
+  position: relative;
+  z-index: 0;
+}
+
+/* Overlay Images for Projects Section */
+.projects-overlay {
+  position: absolute;
+  z-index: -1; /* Ensure they stay behind the content */
+}
+
+.projects-overlay-1 {
+  top: -140px;    /* Adjust vertical position */
+  left: 70px;   /* Adjust horizontal position */
+  width: 200px; /* Adjust size as needed */
+  height: auto;
+}
+
+.projects-overlay-2 {
+  bottom: -210px; /* Adjust vertical position */
+  right: 350px;  /* Adjust horizontal position */
+  width: 200px; /* Adjust size as needed */
+  height: auto;
+}
+
+.projects-overlay-3 {
+  bottom: -250px; /* Adjust vertical position */
+  right: 352px;  /* Adjust horizontal position */
+  width: 200px; /* Adjust size as needed */
+  height: auto;
+}
+
+/* Projects Heading */
 #projects h2 {
-  font-size: 28px;
-  font-weight: 500;
-  margin-bottom: 20px;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 50px;
   text-align: center;
   color: #FFFFFF;
 }
 
+/* Projects Container */
 .projects-container {
   display: flex;
   flex-wrap: wrap;
@@ -228,14 +400,13 @@ section {
   justify-content: center;
 }
 
-/* Project Cards (White background, centered title, custom colors) */
+/* Project Cards */
 .project-card {
   background-color: #FFFFFF;
-  color: #1F2937;
+  color: #365b6d;
   border-radius: 10px;
   padding: 20px;
-  /* Extra bottom padding to prevent text from overlapping GitHub button */
-  padding-bottom: 60px;
+  padding-bottom: 60px; /* Extra bottom padding for GitHub button */
   position: relative;
   text-align: center;
   min-width: 250px;
@@ -245,17 +416,16 @@ section {
 .project-card h3 {
   font-size: 20px;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   color: #365B6D;
 }
 
-/* Align project description text to the left */
 .project-card p {
   text-align: left;
   color: #1F2937;
 }
 
-/* GitHub Icon inside project cards (Bigger: 32x32) */
+/* GitHub Icon inside project cards */
 .github-icon {
   width: 32px !important;
   height: 32px !important;
@@ -275,13 +445,13 @@ section {
 .projects-container .github-btn:hover {
   color: #2c4f5f;
 }
-
 /* On screens wider than 1200px, fit 5 project cards in one row */
 @media (min-width: 1200px) {
   .projects-container {
     flex-wrap: nowrap;
     justify-content: space-between;
   }
+
   .project-card {
     width: calc((100% - 80px) / 5);
   }
@@ -293,19 +463,20 @@ section {
 }
 
 #contact h2 {
-  font-size: 28px;
-  font-weight: 500;
+  font-size: 40px;
+  font-weight: 700;
   margin-bottom: 20px;
+  margin-bottom: 40px;
 }
 
 #contact p {
-  margin-bottom: 20px;
+  margin-bottom: 40px;
   font-size: 16px;
   color: #1F2937;
 }
 
 .btn.contact-btn {
-  background-color: #1E3A5F;
+  background-color: #365b6d;
   color: #FFFFFF;
 }
 
@@ -314,12 +485,12 @@ section {
   .hero-content {
     flex-direction: column;
   }
-  
+
   nav ul {
     flex-direction: column;
     align-items: center;
   }
-  
+
   nav ul li {
     margin: 10px 0;
   }
