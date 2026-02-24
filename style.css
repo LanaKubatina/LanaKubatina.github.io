@@ -151,6 +151,47 @@ h1, h2 {
   margin-bottom: 20px;
   color: #365b6d;
 }
+/* Tabs */
+.projects-tabs {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 18px 0 22px 0;
+}
+
+.tab-btn {
+  font-family: inherit;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.tab-btn:hover {
+  transform: translateY(-1px);
+}
+
+.tab-btn.active {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Panels */
+.tab-panel[hidden] {
+  display: none;
+}
+
+/* GIF inside card */
+.project-gif {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  margin: 12px 0;
+  display: block;
+}
 /* Hero Section */
 #hero .hero-content {
   display: flex;
