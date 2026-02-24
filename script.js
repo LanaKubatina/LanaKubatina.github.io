@@ -41,14 +41,22 @@ if (contactBtn) {
   });
 }
 
-  // Resume button: Open the resume in a new tab
+  // Resume button: Download PDF file
   const resumeBtn = document.getElementById('resumeBtn');
   if (resumeBtn) {
     resumeBtn.addEventListener('click', function () {
-      window.open(
-        'https://drive.google.com/file/d/1ENqPnlq4bM_0qwG42s15Z5yiR2t_IZzS/view?usp=sharing',
-        '_blank'
-      );
+      const resumeBtn = document.getElementById('resumeBtn');
+
+if (resumeBtn) {
+  resumeBtn.addEventListener('click', function () {
+    const link = document.createElement('a');
+    link.href = 'Lana_Kubatina_Resume.pdf';
+    link.download = 'Lana_Kubatina_Resume.pdf';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+}
     });
   }
 
