@@ -40,6 +40,35 @@ if (contactBtn) {
     }
   });
 }
+  // Projects tabs
+const tabButtons = document.querySelectorAll('.tab-btn');
+const tabPanels = document.querySelectorAll('.tab-panel');
+
+tabButtons.forEach((btn) => {
+  btn.addEventListener('click', () => {
+    const targetId = btn.getAttribute('data-tab');
+
+    // buttons state
+    tabButtons.forEach((b) => {
+      b.classList.remove('active');
+      b.setAttribute('aria-selected', 'false');
+    });
+    btn.classList.add('active');
+    btn.setAttribute('aria-selected', 'true');
+
+    // panels state
+    tabPanels.forEach((panel) => {
+      const isTarget = panel.id === targetId;
+      if (isTarget) {
+        panel.classList.add('active');
+        panel.removeAttribute('hidden');
+      } else {
+        panel.classList.remove('active');
+        panel.setAttribute('hidden', '');
+      }
+    });
+  });
+});
 
   // Resume button: Download PDF file
   const resumeBtn = document.getElementById('resumeBtn');
