@@ -46,7 +46,7 @@ if (contactBtn) {
   if (resumeBtn) {
     resumeBtn.addEventListener('click', function () {
       window.open(
-        'https://docs.google.com/document/d/1lS8OmZtrcGG_mYmTUWyuJpfbNBo50zGChKTTw7blN30/edit?usp=sharing',
+        'https://drive.google.com/file/d/1ENqPnlq4bM_0qwG42s15Z5yiR2t_IZzS/view?usp=sharing',
         '_blank'
       );
     });
